@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Compliler</title>
+  </head>
+  <body>
+    <p>Input code here</p>
+    <form method="POST" action="/run">
+      <textarea name="source" style="width: 500px; height: 500px">
+         {{.Source}}
+      </textarea>
+      <button>Run</button>
+    </form>
+    <p>Result</p>
+    {{if .Result}}
+    <div style="border: 1px solid #000; padding: 10px; border-radius: 10px">
+      <pre style="font-size: 18px">{{.Result}}</pre>
+    </div>
+    {{else if .ComplilerError}}
+    <p>{{.Error}}</p>
+    <p>{{.ComplilerError}}</p>
+    {{ end }}
+  </body>
+</html>
